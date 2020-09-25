@@ -2,8 +2,10 @@ package com.farkalit.demo.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.cassandra.core.mapping.BasicMapId;
 import org.springframework.stereotype.Service;
 
 import com.farkalit.demo.model.SchoolsData;
@@ -19,8 +21,16 @@ public class SchoolsDataService {
 		return repository.save(data);
 	}
 
+	public List<SchoolsData> findByUser(final String user) {
+		return repository.findByUser(user);
+	}
+	
 //	public SchoolsData findOne(UUID id, final String user) {
-//		return repository.findOne(BasicMapId.id("id", id).with("user", user));
+//		return repository.findById(BasicMapId.id("id", id).with("user", user));
+//	}
+	
+//	public SchoolsData findByIdAndByUser(final UUID id, final String user) {
+//		return repository.findByIdAndUser(id, user);
 //	}
 
 	public List<SchoolsData> findAll() {

@@ -1,10 +1,13 @@
 package com.farkalit.demo.web.resource;
 
 import java.util.Collections;
+import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,9 +35,15 @@ public class SchoolsDataResource extends BaseResource {
 		return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
 	}
 
+	@RequestMapping(value = "/student_data/user/{user}", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<Object> findByUser(@PathVariable String user) {
+		List<SchoolsData> studentData = service.findByUser(user);
+		return new ResponseEntity<>(studentData == null ? Collections.EMPTY_MAP : studentData, HttpStatus.OK);
+	}
+	
 //	@RequestMapping(value = "/student_data/id/{id}/user/{user}", method = RequestMethod.GET, produces = "application/json")
-//	public ResponseEntity<Object> findOne(@PathVariable UUID id, @PathVariable String user) {
-//		SchoolsData studentData = service.findOne(id, user);
+//	public ResponseEntity<Object> findByUser(@PathVariable UUID id, @PathVariable String user) {
+//		SchoolsData studentData = service.findByIdAndByUser(id, user);
 //		return new ResponseEntity<>(studentData == null ? Collections.EMPTY_MAP : studentData, HttpStatus.OK);
 //	}
 

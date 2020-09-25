@@ -8,6 +8,16 @@ Request payload:
     "salary": 22000.0,
     "dobirth": "1990-03-15"
 }
+OR
+{
+    "empId": 7,
+    "name": "Sarwar",
+    "city": "Pune",
+    "phone": 7948022331,
+    "salary": 22000.0,
+    "dobirth": "1990-03-15",
+    "createdTime": "2020-09-24T04:53:33"
+}
 
 
 ### For Student data : POST URL: http://192.168.43.22:8081/api/student_data

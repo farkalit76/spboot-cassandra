@@ -1,14 +1,15 @@
 package com.farkalit.demo.model;
 
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 import org.springframework.lang.NonNull;
 
-import com.datastax.driver.core.LocalDate;
+//import com.datastax.driver.core.LocalDate;
 
 @Table("emp")
 public class Employee {
@@ -21,21 +22,20 @@ public class Employee {
 	
 	private String city;
 	
-	private String phone;
+	private Long phone;
 	
 	private Double salary;
 	
 	@Column(value= "dobirth")
-	private Date dobirth= new java.util.Date();
+	private LocalDate dobirth;
 	
 	@Column(value= "created_time")
-	private Date createdTime= new java.util.Date();
+	private LocalDateTime createdTime=  LocalDateTime.now();
 
 	public Employee() {}
 	
-	public Employee(Integer empId, String name, String city, String phone, Double salary, Date dobirth,
-			Date createdTime) {
-		super();
+	public Employee(Integer empId, String name, String city, Long phone, Double salary, LocalDate dobirth,
+			LocalDateTime createdTime) {
 		this.empId = empId;
 		this.name = name;
 		this.city = city;
@@ -69,11 +69,11 @@ public class Employee {
 		this.city = city;
 	}
 
-	public String getPhone() {
+	public Long getPhone() {
 		return phone;
 	}
 
-	public void setPhone(String phone) {
+	public void setPhone(Long phone) {
 		this.phone = phone;
 	}
 
@@ -92,15 +92,15 @@ public class Employee {
 			return "";
 	}
 
-	public void setDobirth(Date dobirth) {
+	public void setDobirth(LocalDate dobirth) {
 		this.dobirth = dobirth;
 	}
 
-	public Date getCreatedTime() {
+	public LocalDateTime getCreatedTime() {
 		return createdTime;
 	}
 
-	public void setCreatedTime(Date createdTime) {
+	public void setCreatedTime(LocalDateTime createdTime) {
 		this.createdTime = createdTime;
 	}
 

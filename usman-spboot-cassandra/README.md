@@ -49,7 +49,7 @@
 -------------------
 1. Need to Install Java 8u251 and Paython 2.7 (go to command prompt and type python, it will open python shell for you)
 2. Install Cassandra 3.11
-3. Install Datastax for SQL Dashboard
+3. Install Install Datastax DevCenter for Data Management With GUI or DBeaver (include Java-driver-wrapper) or RazorSQL
 
 #Create Keyspace
 	 CREATE KEYSPACE usmankeysp WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};

@@ -74,14 +74,16 @@ Payload request:
   INSERT INTO emp (emp_id, city, name, salary, phone, dobirth, created_time) values(  5,'Pune','Sarwar',22000, 7948022331, '1995-03-10','2020-09-24 10:23:33' );
   
  ### -->Selection
-	Select * from emp;
-	select * from emp where emp_id=2;
-  -->Filtering with column which is not primary key, then create index for that key.
-   create index on emp(salary);
-   select * from emp where salary >= 40000 allow filtering;
+	SELECT * from emp;
+	SELECT * from emp where emp_id=2;
+	
+ ### -->Filtering with column which is not primary key, then create index for that key.
+   	CREATE index on emp(salary);
+   	SELET * from emp where salary >= 40000 allow filtering;
    
- ### delete from emp where emp_id=6;
-   
+ ### -->Delete table row from table
+ 	DELETE from emp where emp_id=6;
+	DELETE salary FROM emp WHERE emp_id=3; (It will delete data of salary from the table)
 
 ###  CREATE TABLE schools(
 	   id uuid PRIMARY KEY,
@@ -90,7 +92,7 @@ Payload request:
 	   creation_date timestamp
    );
    
-   ---date need extra converting task, better use timestamp. with Java LocalDateTime
+
 ###   CREATE TABLE persons(
 	   person_id uuid PRIMARY KEY,
 	   name text,

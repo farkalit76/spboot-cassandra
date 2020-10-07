@@ -13,6 +13,16 @@
 	    "salary": 22000.0,
 	    "dobirth": "1990-03-15"
 	}
+	-OR-
+	{
+	    "empId": 9,
+	    "name": "James",
+	    "city": "London",
+	    "phone": 1234567890,
+	    "salary": 2000.0,
+	    "dobirth": "1990-03-15",
+	    "createdTime": "2020-09-24T04:53:33"
+	}
 
 ### For Student data : POST URL: http://192.168.43.22:8081/api/student_data
 	Payload request:
